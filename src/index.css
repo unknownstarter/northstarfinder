@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-neutral-950 text-neutral-200 antialiased;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply w-full px-3 py-1.5 text-sm rounded bg-neutral-900 border border-neutral-800 text-neutral-200 outline-none focus:border-neutral-600 transition-colors;
+  }
+}
