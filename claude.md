@@ -30,10 +30,41 @@ Business Projection Builder — 사용자가 Factor(변수)를 정의하고 수�
 - **코드**: 수정된 부분만 표시. 전체 코드 반복 금지.
 - **커밋**: Conventional Commits 형식 준수.
 
+## 환경 셋팅 (다른 디바이스에서 시작할 때)
+GitHub: `https://github.com/unknownstarter/northstarfinder.git`
+
+### 사전 요구사항
+- **Node.js** ≥ 20.19 (Vite 7 요구사항, LTS 20 또는 22 권장)
+- **npm** ≥ 10 (Node 20+에 기본 포함)
+- **Git**
+
+### 초기 셋업
+```bash
+git clone https://github.com/unknownstarter/northstarfinder.git
+cd northstarfinder
+npm install        # package-lock.json 기준으로 의존성 설치
+npm run dev        # 로컬 개발 서버 (Vite, 기본 http://localhost:5173)
+```
+
+### 빌드 / 프리뷰
+```bash
+npm run build      # tsc -b && vite build → dist/ 생성
+npm run preview    # 빌드 산출물 로컬 프리뷰
+```
+
+### 환경 변수
+- 현재 MVP는 외부 API/DB 연동이 없어 `.env` 불필요.
+- 추후 Supabase/Firebase/GA4 연동 시 `.env.local`에 키 추가 예정. 키 추가되면 이 섹션과 `.env.example`을 갱신할 것.
+
+### 배포
+- GitHub Pages 자동 배포: `.github/workflows/deploy-pages.yml` (main 푸시 시 트리거)
+- Vite `base` 경로는 레포명(`/northstarfinder/`) 기준으로 설정됨 → 포크/리네임 시 `vite.config.ts` 수정 필요.
+
 ## 명령어
+- `npm install` — 의존성 설치
 - `npm run dev` — 로컬 서버 실행
 - `npm run build` — 프로젝트 빌드
-- `npm test` — 테스트 실행
+- `npm run preview` — 빌드 결과 프리뷰
 
 ## 스킬 참조
 각 역할별 상세 규칙은 아래 파일 참고:
